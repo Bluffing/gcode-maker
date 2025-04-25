@@ -54,6 +54,7 @@
             input_angle = new NumericUpDown();
             label11 = new Label();
             label12 = new Label();
+            chk_way = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)input_centery).BeginInit();
             ((System.ComponentModel.ISupportInitialize)input_centerx).BeginInit();
             ((System.ComponentModel.ISupportInitialize)input_sizeheight).BeginInit();
@@ -281,9 +282,9 @@
             // 
             // btn_gen
             // 
-            btn_gen.Location = new Point(258, 96);
+            btn_gen.Location = new Point(258, 115);
             btn_gen.Name = "btn_gen";
-            btn_gen.Size = new Size(112, 71);
+            btn_gen.Size = new Size(112, 52);
             btn_gen.TabIndex = 18;
             btn_gen.Text = "Generate";
             btn_gen.UseVisualStyleBackColor = true;
@@ -329,11 +330,24 @@
             label12.TabIndex = 15;
             label12.Text = "deg";
             // 
+            // chk_way
+            // 
+            chk_way.AutoSize = true;
+            chk_way.Checked = true;
+            chk_way.CheckState = CheckState.Checked;
+            chk_way.Location = new Point(258, 96);
+            chk_way.Name = "chk_way";
+            chk_way.Size = new Size(97, 19);
+            chk_way.TabIndex = 20;
+            chk_way.Text = "Conventional";
+            chk_way.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(396, 189);
+            ClientSize = new Size(544, 264);
+            Controls.Add(chk_way);
             Controls.Add(groupBox4);
             Controls.Add(btn_gen);
             Controls.Add(groupBox3);
@@ -361,6 +375,7 @@
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)input_angle).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -390,5 +405,6 @@
         private NumericUpDown input_angle;
         private Label label11;
         private Label label12;
+        private CheckBox chk_way;
     }
 }

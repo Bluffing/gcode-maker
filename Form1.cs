@@ -41,6 +41,7 @@ namespace gcode_maker
             var angle = degToRad((double)input_angle.Value);
             var toolSize = (double)input_toolsize.Value;
             var stepSize = (double)input_stepmm.Value;
+            var conventional = chk_way.Checked;
 
             var height = (double)input_sizeheight.Value;
             var width = (double)input_sizewidth.Value;
@@ -59,27 +60,39 @@ namespace gcode_maker
 
             Coord topCenter = center + (width / 2 * Sin(angle), height / 2 * Cos(angle));
 
-            Coord left(Coord center) => center + (-width / 2 * Sin(Math.PI / 2 + angle), -width / 2 * Cos(Math.PI / 2 + angle));
-            Coord right(Coord center) => center + (width / 2 * Sin(Math.PI / 2 - angle), width / 2 * -Cos(Math.PI / 2 - angle));
+
+            // Coord left(Coord center) => center + (-width / 2 * Sin(Math.PI / 2 + angle), -width / 2 * Cos(Math.PI / 2 + angle));
+            // Coord right(Coord center) => center + (width / 2 * Sin(Math.PI / 2 - angle), width / 2 * -Cos(Math.PI / 2 - angle));
+
+            Coord stepos() => (width / 2 * Sin(Math.PI / 2 - angle), width / 2 * -Cos(Math.PI / 2 - angle));
+
+            Coord left(Coord center) => center - stepos();
+            Coord right(Coord center) => center + stepos();
+            (Coord start, Coord end) line(Coord center) => conventional ? (left(center), right(center)) : (right(center), left(center));
+
             Coord moveOnYAxis(Coord point, double step) => point + (xAxis * step, yAxis * step);
 
             double moveStep = 2d; // 2 mm
-            var GCode = left(topCenter).GCodeString("G00") + " Z3";
-            GCode += "\n" + left(topCenter).GCodeString("G01") + " Z0";
-            GCode += "\n" + right(topCenter).GCodeString("G01");
+
+            var l = line(topCenter);
+            var GCode = l.start.GCodeString("G00") + " Z3";
+            GCode += "\n" + l.start.GCodeString("G01") + " Z0";
+            GCode += "\n" + l.end.GCodeString("G01");
 
             int counter = 0;
             while (topCenter.FitIn(boppityBot, toppityTop))
             {
-                // move up, then back to top left
+                // move up, then back to start
                 topCenter = moveOnYAxis(topCenter, moveStep);
-                GCode += "\n" + right(topCenter).GCodeString("G01");
-                GCode += "\n" + left(topCenter).GCodeString("G00");
+                l = line(topCenter);
+                GCode += "\n" + l.end.GCodeString("G01");
+                GCode += "\n" + l.start.GCodeString("G00");
 
-                // move down, then to right
+                // move down, then cross
                 topCenter = moveOnYAxis(topCenter, -(stepSize + moveStep));
-                GCode += "\n" + left(topCenter).GCodeString("G01");
-                GCode += "\n" + right(topCenter).GCodeString("G01");
+                l = line(topCenter);
+                GCode += "\n" + l.start.GCodeString("G01");
+                GCode += "\n" + l.end.GCodeString("G01");
 
                 if (counter++ >= 100)
                     break;
