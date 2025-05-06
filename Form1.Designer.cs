@@ -30,8 +30,8 @@
         {
             label4 = new Label();
             label5 = new Label();
-            input_centery = new NumericUpDown();
-            input_centerx = new NumericUpDown();
+            input_try = new NumericUpDown();
+            input_trx = new NumericUpDown();
             label2 = new Label();
             label3 = new Label();
             input_sizeheight = new NumericUpDown();
@@ -55,8 +55,19 @@
             label11 = new Label();
             label12 = new Label();
             chk_way = new CheckBox();
-            ((System.ComponentModel.ISupportInitialize)input_centery).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)input_centerx).BeginInit();
+            txt_filename = new TextBox();
+            groupBox5 = new GroupBox();
+            groupBox6 = new GroupBox();
+            input_toolspeed = new NumericUpDown();
+            groupBox7 = new GroupBox();
+            input_homez = new NumericUpDown();
+            label15 = new Label();
+            input_homey = new NumericUpDown();
+            input_homex = new NumericUpDown();
+            label13 = new Label();
+            label14 = new Label();
+            ((System.ComponentModel.ISupportInitialize)input_try).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)input_trx).BeginInit();
             ((System.ComponentModel.ISupportInitialize)input_sizeheight).BeginInit();
             ((System.ComponentModel.ISupportInitialize)input_sizewidth).BeginInit();
             SizeBox.SuspendLayout();
@@ -68,6 +79,13 @@
             ((System.ComponentModel.ISupportInitialize)input_stepmm).BeginInit();
             groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)input_angle).BeginInit();
+            groupBox5.SuspendLayout();
+            groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)input_toolspeed).BeginInit();
+            groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)input_homez).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)input_homey).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)input_homex).BeginInit();
             SuspendLayout();
             // 
             // label4
@@ -88,23 +106,25 @@
             label5.TabIndex = 7;
             label5.Text = "x";
             // 
-            // input_centery
+            // input_try
             // 
-            input_centery.DecimalPlaces = 3;
-            input_centery.Location = new Point(69, 37);
-            input_centery.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
-            input_centery.Name = "input_centery";
-            input_centery.Size = new Size(56, 23);
-            input_centery.TabIndex = 6;
+            input_try.DecimalPlaces = 3;
+            input_try.Location = new Point(69, 37);
+            input_try.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            input_try.Name = "input_try";
+            input_try.Size = new Size(56, 23);
+            input_try.TabIndex = 6;
+            input_try.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
-            // input_centerx
+            // input_trx
             // 
-            input_centerx.DecimalPlaces = 3;
-            input_centerx.Location = new Point(7, 37);
-            input_centerx.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
-            input_centerx.Name = "input_centerx";
-            input_centerx.Size = new Size(56, 23);
-            input_centerx.TabIndex = 5;
+            input_trx.DecimalPlaces = 3;
+            input_trx.Location = new Point(7, 37);
+            input_trx.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            input_trx.Name = "input_trx";
+            input_trx.Size = new Size(56, 23);
+            input_trx.TabIndex = 5;
+            input_trx.Value = new decimal(new int[] { 4, 0, 0, 0 });
             // 
             // label2
             // 
@@ -131,7 +151,7 @@
             input_sizeheight.Name = "input_sizeheight";
             input_sizeheight.Size = new Size(56, 23);
             input_sizeheight.TabIndex = 11;
-            input_sizeheight.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            input_sizeheight.Value = new decimal(new int[] { 5, 0, 0, 0 });
             // 
             // input_sizewidth
             // 
@@ -140,7 +160,7 @@
             input_sizewidth.Name = "input_sizewidth";
             input_sizewidth.Size = new Size(56, 23);
             input_sizewidth.TabIndex = 10;
-            input_sizewidth.Value = new decimal(new int[] { 20, 0, 0, 0 });
+            input_sizewidth.Value = new decimal(new int[] { 25, 0, 0, 65536 });
             // 
             // SizeBox
             // 
@@ -148,7 +168,7 @@
             SizeBox.Controls.Add(label2);
             SizeBox.Controls.Add(input_sizewidth);
             SizeBox.Controls.Add(label3);
-            SizeBox.Location = new Point(152, 19);
+            SizeBox.Location = new Point(353, 19);
             SizeBox.Name = "SizeBox";
             SizeBox.Size = new Size(137, 71);
             SizeBox.TabIndex = 14;
@@ -157,16 +177,16 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(input_centery);
-            groupBox1.Controls.Add(input_centerx);
+            groupBox1.Controls.Add(input_try);
+            groupBox1.Controls.Add(input_trx);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label5);
-            groupBox1.Location = new Point(12, 19);
+            groupBox1.Location = new Point(213, 19);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(134, 71);
             groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Center";
+            groupBox1.Text = "Top Right";
             // 
             // groupBox2
             // 
@@ -188,7 +208,7 @@
             input_toolsize.Name = "input_toolsize";
             input_toolsize.Size = new Size(56, 23);
             input_toolsize.TabIndex = 14;
-            input_toolsize.Value = new decimal(new int[] { 4, 0, 0, 0 });
+            input_toolsize.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label6
             // 
@@ -244,7 +264,6 @@
             // 
             input_stepperc.DecimalPlaces = 3;
             input_stepperc.Location = new Point(92, 37);
-            input_stepperc.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             input_stepperc.Name = "input_stepperc";
             input_stepperc.Size = new Size(56, 23);
             input_stepperc.TabIndex = 17;
@@ -256,11 +275,10 @@
             input_stepmm.DecimalPlaces = 3;
             input_stepmm.Location = new Point(6, 37);
             input_stepmm.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            input_stepmm.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             input_stepmm.Name = "input_stepmm";
             input_stepmm.Size = new Size(56, 23);
             input_stepmm.TabIndex = 14;
-            input_stepmm.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            input_stepmm.Value = new decimal(new int[] { 5, 0, 0, 65536 });
             input_stepmm.ValueChanged += input_stepmm_ValueChanged;
             // 
             // label9
@@ -282,7 +300,7 @@
             // 
             // btn_gen
             // 
-            btn_gen.Location = new Point(258, 115);
+            btn_gen.Location = new Point(619, 289);
             btn_gen.Name = "btn_gen";
             btn_gen.Size = new Size(112, 52);
             btn_gen.TabIndex = 18;
@@ -295,7 +313,7 @@
             groupBox4.Controls.Add(input_angle);
             groupBox4.Controls.Add(label11);
             groupBox4.Controls.Add(label12);
-            groupBox4.Location = new Point(295, 19);
+            groupBox4.Location = new Point(496, 19);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(75, 71);
             groupBox4.TabIndex = 19;
@@ -311,7 +329,7 @@
             input_angle.Name = "input_angle";
             input_angle.Size = new Size(56, 23);
             input_angle.TabIndex = 14;
-            input_angle.Value = new decimal(new int[] { 45, 0, 0, 0 });
+            input_angle.Value = new decimal(new int[] { 90, 0, 0, 0 });
             // 
             // label11
             // 
@@ -333,20 +351,128 @@
             // chk_way
             // 
             chk_way.AutoSize = true;
-            chk_way.Checked = true;
-            chk_way.CheckState = CheckState.Checked;
-            chk_way.Location = new Point(258, 96);
+            chk_way.Location = new Point(619, 270);
             chk_way.Name = "chk_way";
-            chk_way.Size = new Size(97, 19);
+            chk_way.Size = new Size(117, 19);
             chk_way.TabIndex = 20;
-            chk_way.Text = "Conventional";
+            chk_way.Text = "Reverse Direction";
             chk_way.UseVisualStyleBackColor = true;
+            // 
+            // txt_filename
+            // 
+            txt_filename.Location = new Point(6, 22);
+            txt_filename.Name = "txt_filename";
+            txt_filename.Size = new Size(231, 23);
+            txt_filename.TabIndex = 21;
+            txt_filename.Text = "bleak";
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(txt_filename);
+            groupBox5.Location = new Point(12, 173);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new Size(254, 55);
+            groupBox5.TabIndex = 22;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "file name";
+            // 
+            // groupBox6
+            // 
+            groupBox6.Controls.Add(input_toolspeed);
+            groupBox6.Location = new Point(258, 96);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(88, 71);
+            groupBox6.TabIndex = 23;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Tool Speed";
+            // 
+            // input_toolspeed
+            // 
+            input_toolspeed.Location = new Point(14, 37);
+            input_toolspeed.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            input_toolspeed.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            input_toolspeed.Name = "input_toolspeed";
+            input_toolspeed.Size = new Size(56, 23);
+            input_toolspeed.TabIndex = 24;
+            input_toolspeed.Value = new decimal(new int[] { 1600, 0, 0, 0 });
+            // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(input_homez);
+            groupBox7.Controls.Add(label15);
+            groupBox7.Controls.Add(input_homey);
+            groupBox7.Controls.Add(input_homex);
+            groupBox7.Controls.Add(label13);
+            groupBox7.Controls.Add(label14);
+            groupBox7.Location = new Point(12, 19);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(195, 71);
+            groupBox7.TabIndex = 24;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Home";
+            // 
+            // input_homez
+            // 
+            input_homez.DecimalPlaces = 3;
+            input_homez.Location = new Point(130, 37);
+            input_homez.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            input_homez.Name = "input_homez";
+            input_homez.Size = new Size(56, 23);
+            input_homez.TabIndex = 9;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(130, 19);
+            label15.Name = "label15";
+            label15.Size = new Size(12, 15);
+            label15.TabIndex = 10;
+            label15.Text = "z";
+            // 
+            // input_homey
+            // 
+            input_homey.DecimalPlaces = 3;
+            input_homey.Location = new Point(69, 37);
+            input_homey.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            input_homey.Name = "input_homey";
+            input_homey.Size = new Size(56, 23);
+            input_homey.TabIndex = 6;
+            // 
+            // input_homex
+            // 
+            input_homex.DecimalPlaces = 3;
+            input_homex.Location = new Point(7, 37);
+            input_homex.Minimum = new decimal(new int[] { 100, 0, 0, int.MinValue });
+            input_homex.Name = "input_homex";
+            input_homex.Size = new Size(56, 23);
+            input_homex.TabIndex = 5;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(69, 19);
+            label13.Name = "label13";
+            label13.Size = new Size(13, 15);
+            label13.TabIndex = 8;
+            label13.Text = "y";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(7, 19);
+            label14.Name = "label14";
+            label14.Size = new Size(13, 15);
+            label14.TabIndex = 7;
+            label14.Text = "x";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(544, 264);
+            ClientSize = new Size(748, 355);
+            Controls.Add(groupBox7);
+            Controls.Add(groupBox6);
+            Controls.Add(groupBox5);
             Controls.Add(chk_way);
             Controls.Add(groupBox4);
             Controls.Add(btn_gen);
@@ -356,8 +482,8 @@
             Controls.Add(SizeBox);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)input_centery).EndInit();
-            ((System.ComponentModel.ISupportInitialize)input_centerx).EndInit();
+            ((System.ComponentModel.ISupportInitialize)input_try).EndInit();
+            ((System.ComponentModel.ISupportInitialize)input_trx).EndInit();
             ((System.ComponentModel.ISupportInitialize)input_sizeheight).EndInit();
             ((System.ComponentModel.ISupportInitialize)input_sizewidth).EndInit();
             SizeBox.ResumeLayout(false);
@@ -374,6 +500,15 @@
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)input_angle).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)input_toolspeed).EndInit();
+            groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)input_homez).EndInit();
+            ((System.ComponentModel.ISupportInitialize)input_homey).EndInit();
+            ((System.ComponentModel.ISupportInitialize)input_homex).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -381,8 +516,8 @@
         #endregion
         private Label label4;
         private Label label5;
-        private NumericUpDown input_centery;
-        private NumericUpDown input_centerx;
+        private NumericUpDown input_try;
+        private NumericUpDown input_trx;
         private Label label2;
         private Label label3;
         private NumericUpDown input_sizeheight;
@@ -406,5 +541,16 @@
         private Label label11;
         private Label label12;
         private CheckBox chk_way;
+        private TextBox txt_filename;
+        private GroupBox groupBox5;
+        private GroupBox groupBox6;
+        private NumericUpDown input_toolspeed;
+        private GroupBox groupBox7;
+        private NumericUpDown input_homez;
+        private Label label15;
+        private NumericUpDown input_homey;
+        private NumericUpDown input_homex;
+        private Label label13;
+        private Label label14;
     }
 }
