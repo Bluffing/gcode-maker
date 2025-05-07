@@ -59,6 +59,11 @@
 
             return IsBetween(start.x, end.x, x) && IsBetween(start.y, end.y, y);
         }
+        public bool CloseTo(Coord other, double near)
+        {
+            return Math.Abs(x - other.x) < near && Math.Abs(y - other.y) < near;
+        }
+
         public Coord Round(int digits = 0)
         {
             x = Math.Round(x, digits);
